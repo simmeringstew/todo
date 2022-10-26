@@ -111,6 +111,16 @@ h1 {
     font-size: 1.4rem;
 }
 
+.project-description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 16px;    
+    max-height: 75px;     
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
 .close {
     align-self: flex-end;
     margin-top: auto;
