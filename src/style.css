@@ -13,4 +13,57 @@
     --yellow: #facc15;
     --white: #f8fafc;
     --black: #111827;
+    --gray: #6b7280;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* header
+--------------------------------
+*/
+
+header {
+    position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--white);
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    box-shadow: 0px 1px 8px var(--gray);
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.right-side-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-picture {
+    width: 3rem;
+    height: 3rem;
+}
+
+.create-view {
+    background-color: var(--blue);
+    color: var(--white);
+    border: none;
+    width: 7rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 16px;
+}
+
+.create-view:active {
+    transform: translateY(2px);
 }
