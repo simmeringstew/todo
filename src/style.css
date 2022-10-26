@@ -16,6 +16,10 @@
     --gray: #6b7280;
 }
 
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
 .container {
     display: flex;
     flex-direction: column;
