@@ -6,4 +6,11 @@
 
 :root {
     font-family: 'Poppins', sans-serif;
+    background-color: #e5e5e5;
+    --blue: #0ea5e9;
+    --red: #be123c;
+    --green: #15803d;
+    --yellow: #facc15;
+    --white: #f8fafc;
+    --black: #111827;
 }
