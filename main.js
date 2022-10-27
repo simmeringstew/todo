@@ -136,7 +136,7 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("\nexports.__esModule = true;\n__webpack_require__(/*! ./meyer-reset.css */ \"./src/meyer-reset.css\");\n__webpack_require__(/*! ./style.css */ \"./src/style.css\");\n\n\n//# sourceURL=webpack://todo/./src/index.js?");
+eval("\nexports.__esModule = true;\n__webpack_require__(/*! ./meyer-reset.css */ \"./src/meyer-reset.css\");\n__webpack_require__(/*! ./style.css */ \"./src/style.css\");\n// where the project objects will get stored after being created\nvar projects = [];\n// project object class\nvar Project = /** @class */ (function () {\n    function Project(title, description, date, urgency, todos) {\n        if (title === void 0) { title = \"\"; }\n        if (description === void 0) { description = \"\"; }\n        if (date === void 0) { date = \"\"; }\n        if (urgency === void 0) { urgency = \"\"; }\n        if (todos === void 0) { todos = []; }\n        this.title = title;\n        this.description = description;\n        this.date = date;\n        this.urgency = urgency;\n        this.todos = todos;\n    }\n    Project.prototype.addTodo = function (newTodo) {\n        this.todos.push(newTodo);\n    };\n    Project.prototype.removeTodo = function (index) {\n        this.todos.splice(index, 1);\n    };\n    return Project;\n}());\nvar newProject = new Project(\"Test\", \"Here is a test of a project card\", \"2023-05-16\", \"urgent\");\nprojects.push(newProject);\nprojects[0].addTodo(\"This has been added\");\nconsole.log(projects[0]);\n\n\n//# sourceURL=webpack://todo/./src/index.js?");
 
 /***/ })
 
