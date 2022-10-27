@@ -28,6 +28,17 @@ class Project {
     }
 }
 
+// selector for the create project button and modal
+const modal = document.querySelector(".modal") as HTMLDialogElement | null;
+const closeModal = document.querySelector(".close-modal") as HTMLDivElement | null;
+const createProjectButton = document.querySelector(".create-view") as HTMLButtonElement | null;
+createProjectButton?.addEventListener("click", () => {
+    modal?.showModal();
+});
+closeModal?.addEventListener("click", () => {
+    modal?.close();
+});
+
 
 // testing stuff
 let newProject = new Project("Test", "Here is a test of a project card", "2023-05-16", "urgent");

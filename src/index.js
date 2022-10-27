@@ -26,6 +26,16 @@ var Project = /** @class */ (function () {
     };
     return Project;
 }());
+// selector for the create project button and modal
+var modal = document.querySelector(".modal");
+var closeModal = document.querySelector(".close-modal");
+var createProjectButton = document.querySelector(".create-view");
+createProjectButton === null || createProjectButton === void 0 ? void 0 : createProjectButton.addEventListener("click", function () {
+    modal === null || modal === void 0 ? void 0 : modal.showModal();
+});
+closeModal === null || closeModal === void 0 ? void 0 : closeModal.addEventListener("click", function () {
+    modal === null || modal === void 0 ? void 0 : modal.close();
+});
 // testing stuff
 var newProject = new Project("Test", "Here is a test of a project card", "2023-05-16", "urgent");
 projects.push(newProject);

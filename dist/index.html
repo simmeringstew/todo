@@ -25,21 +25,29 @@
     </div>
     <!-- hidden by deafult modal that appears when create project button is clicked -->
     <dialog class="modal">
-        <div class="modal-content-top">
-            <h3>Create Project</h3>
-            <div class="material-symbols-outlined close-modal">close</div>
+        <div class="modal-content">
+            <div class="modal-content-top">
+                <h3>Create Project</h3>
+                <div class="material-symbols-outlined close-modal">close</div>
+            </div>
+            <form action="/" method="post" class="create-project">
+                <input type="text" id="title" name="title" maxlength="15" placeholder="Project Title">
+                <input type="text" id="description" name="description" placeholder="Project Description">
+                <div class="date-container">
+                    <label for="date">Project Due Date:</label>
+                    <input type="date" id="date" name="date">
+                </div>
+                <div class="urgent-input">
+                    <input type="radio" id="urgent" name="urgency" value="urgent">
+                    <label for="urgent">Urgent</label>
+                </div>
+                <div class="not-urgent-input">
+                    <input type="radio" id="not-urgent" name="urgency" value="not-urgent" checked="checked">
+                    <label for="not-urgent">Not Urgent</label>
+                </div> 
+            </form>
+            <button class="submit">Create</button>
         </div>
-        <form action="/" method="post" class="create-project">
-            <input type="text" id="title" name="title" maxlength="15" placeholder="Project Title">
-            <input type="text" id="description" name="description" placeholder="Project Description">
-            <label for="date">Project Due Date:</label>
-            <input type="date" id="date" name="date">
-            <input type="radio" id="urgent" name="urgency" value="urgent">
-            <label for="urgent">Urgent</label>
-            <input type="radio" id="not-urgent" name="urgency" value="not-urgent" checked="checked">
-            <label for="not-urgent">Not Urgent</label>
-        </form>
-        <button class="create-project">Create</button>
     </dialog>
 </body>
 </html>
