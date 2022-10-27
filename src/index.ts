@@ -1,5 +1,6 @@
 import "./meyer-reset.css";
 import "./style.css";
+import resetModal from "./resetModal"
 
 // where the project objects will get stored after being created
 let projects: any = [];
@@ -34,9 +35,11 @@ const closeModal = document.querySelector(".close-modal") as HTMLDivElement | nu
 const createProjectButton = document.querySelector(".create-view") as HTMLButtonElement | null;
 createProjectButton?.addEventListener("click", () => {
     modal?.showModal();
+    resetModal();
 });
 closeModal?.addEventListener("click", () => {
     modal?.close();
+    resetModal();
 });
 
 

@@ -2,6 +2,7 @@
 exports.__esModule = true;
 require("./meyer-reset.css");
 require("./style.css");
+var resetModal_1 = require("./resetModal");
 // where the project objects will get stored after being created
 var projects = [];
 // project object class
@@ -32,9 +33,11 @@ var closeModal = document.querySelector(".close-modal");
 var createProjectButton = document.querySelector(".create-view");
 createProjectButton === null || createProjectButton === void 0 ? void 0 : createProjectButton.addEventListener("click", function () {
     modal === null || modal === void 0 ? void 0 : modal.showModal();
+    (0, resetModal_1["default"])();
 });
 closeModal === null || closeModal === void 0 ? void 0 : closeModal.addEventListener("click", function () {
     modal === null || modal === void 0 ? void 0 : modal.close();
+    (0, resetModal_1["default"])();
 });
 // testing stuff
 var newProject = new Project("Test", "Here is a test of a project card", "2023-05-16", "urgent");
