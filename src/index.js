@@ -1,2 +1,4 @@
-import "./meyer-reset.css";
-import "./style.css";
+"use strict";
+exports.__esModule = true;
+require("./meyer-reset.css");
+require("./style.css");
