@@ -151,10 +151,9 @@ h1 {
 
 .project-description {
     overflow: hidden;
-    text-overflow: ellipsis;
     display: -webkit-box;
-    line-height: 16px;    
-    max-height: 75px;     
+    line-height: 1rem;    
+    max-height: 47px;     
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
 }
@@ -166,6 +165,22 @@ h1 {
 
 .close:hover {
     cursor: pointer;
+}
+
+/* project media screen
+--------------------------------
+*/
+
+@media screen and (min-width: 750px) and (max-width: 1200px) {
+    .projects {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .projects {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 /* project card modifiers
