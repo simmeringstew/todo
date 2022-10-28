@@ -3,6 +3,7 @@ exports.__esModule = true;
 exports.showProject = exports.removeProject = void 0;
 require("./meyer-reset.css");
 require("./style.css");
+var format_1 = require("date-fns/format");
 var resetModal_1 = require("./resetModal");
 var validateForm_1 = require("./validateForm");
 var updateProjectCards_1 = require("./updateProjectCards");
@@ -18,7 +19,7 @@ var Project = /** @class */ (function () {
         if (todos === void 0) { todos = []; }
         this.title = title;
         this.description = description;
-        this.date = date;
+        this.date = (0, format_1["default"])(new Date(date), "do MMMM y");
         this.urgency = urgency;
         this.todos = todos;
     }

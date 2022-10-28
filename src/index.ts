@@ -1,5 +1,6 @@
 import "./meyer-reset.css";
 import "./style.css";
+import format from "date-fns/format";
 import resetModal from "./resetModal";
 import validateForm from "./validateForm";
 import updateProjectCardsArea from "./updateProjectCards";
@@ -18,7 +19,7 @@ class Project {
     constructor(title = "", description = "", date = "", urgency = "", todos = []) {
         this.title = title;
         this.description = description;
-        this.date = date;
+        this.date = format(new Date(date), "do MMMM y");
         this.urgency = urgency;
         this.todos = todos;
     }
