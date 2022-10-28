@@ -76,16 +76,86 @@ function newProjectObject(data: any): void {
     updateProjectCardsArea(projects);
 }
 
-
 // function to remove projects
-export default function removeProject(index: any): void {
+export function removeProject(index: any): void {
     projects.splice(index, 1);
     updateProjectCardsArea(projects);
 }
+
+// function to show current project
+export function showProject(index: any): void {
+    const activeArea = document.querySelector(".active-project") as HTMLDivElement;
+    const projectArea = document.querySelector(".projects") as HTMLDivElement;
+    
+    const breakLineOne = document.createElement("hr") as HTMLHRElement;
+    const breakLineTwo = document.createElement("hr") as HTMLHRElement;
+
+    const activeCard = document.createElement("div") as HTMLDivElement;
+    activeCard.classList.add("active-card");
+    activeCard.classList.add(projects[index].urgency);
+
+    const title = document.createElement("h2") as HTMLHeadingElement;
+    title.classList.add("active-title");
+    title.textContent = projects[index].title;
+
+    const date = document.createElement("p") as HTMLParagraphElement;
+    date.classList.add("active-date");
+    date.textContent = `Due Date: ${projects[index].date}`;
+
+    const description = document.createElement("p") as HTMLParagraphElement;
+    description.classList.add("active-description");
+    description.textContent = projects[index].description;
+
+    let allTodos: any[] = [];
+    for (let i = 0; i < projects[index].todos.length; i++) {
+        const todoArea = document.createElement("div") as HTMLDivElement;
+        todoArea.classList.add("todo");
+        todoArea.setAttribute("data-target", `${i}`);
+        const checkBox = document.createElement("input") as HTMLInputElement;
+        checkBox.type = "checkbox";
+        checkBox.setAttribute("data-target", `${i}`);
+        const todoText = document.createElement("p") as HTMLParagraphElement;
+        todoText.classList.add("todo-text");
+        todoText.textContent = projects[index].todos[i];
+        todoArea.appendChild(checkBox);
+        todoArea.appendChild(todoText);
+        allTodos.push(todoArea);
+    }
+
+    const newTodo = document.createElement("input") as HTMLInputElement;
+    newTodo.classList.add("new-todo");
+    newTodo.id = "new-todo";
+    newTodo.name = "new-todo";
+    newTodo.maxLength = 20;
+    newTodo.placeholder = "Press enter to add";
+
+    const completeButton = document.createElement("button") as HTMLButtonElement;
+    completeButton.classList.add("complete-active");
+    completeButton.textContent = "Complete Project!";
+    completeButton.setAttribute("data-target", `${index}`);
+
+    projectArea.innerHTML = "";
+
+    activeCard.appendChild(title);
+    activeCard.appendChild(date);
+    activeCard.appendChild(breakLineOne);
+    activeCard.appendChild(description);
+    activeCard.appendChild(breakLineTwo);
+    for (let i = 0; i < allTodos.length; i++) {
+        activeCard.appendChild(allTodos[i]);
+    }
+    activeCard.appendChild(newTodo);
+    activeCard.appendChild(completeButton);
+
+    activeArea.appendChild(activeCard);
+
+}
+
 
 // testing stuff
 let newProject = new Project("Test", "Here is a test of a project card", "2023-05-16", "urgent");
 let newProject2 = new Project("Antother Test", "Blah", "2022-11-08", "not-urgent");
 projects.push(newProject);
-//projects.push(newProject2);
-//updateProjectCardsArea(projects);
+projects.push(newProject2);
+projects[1].addTodo("See if this works");
+updateProjectCardsArea(projects);
