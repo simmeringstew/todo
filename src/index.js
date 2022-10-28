@@ -3,6 +3,7 @@ exports.__esModule = true;
 require("./meyer-reset.css");
 require("./style.css");
 var resetModal_1 = require("./resetModal");
+var updateProjectCards_1 = require("./updateProjectCards");
 // where the project objects will get stored after being created
 var projects = [];
 // project object class
@@ -31,38 +32,32 @@ var Project = /** @class */ (function () {
 var modal = document.querySelector(".modal");
 var closeModal = document.querySelector(".close-modal");
 var createProjectButton = document.querySelector(".create-view");
-createProjectButton === null || createProjectButton === void 0 ? void 0 : createProjectButton.addEventListener("click", function () {
-    modal === null || modal === void 0 ? void 0 : modal.showModal();
+createProjectButton.addEventListener("click", function () {
+    modal.showModal();
     (0, resetModal_1["default"])();
 });
-closeModal === null || closeModal === void 0 ? void 0 : closeModal.addEventListener("click", function () {
-    modal === null || modal === void 0 ? void 0 : modal.close();
+closeModal.addEventListener("click", function () {
+    modal.close();
     (0, resetModal_1["default"])();
 });
+modal.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        // add here the ability to validate the form
+    }
+    else if (e.key === "Escape") {
+        modal.close();
+        (0, resetModal_1["default"])();
+    }
+});
+// function to remove projects
+function removeProject(index) {
+    projects.splice(index, 1);
+    (0, updateProjectCards_1["default"])(projects);
+}
+exports["default"] = removeProject;
 // testing stuff
 var newProject = new Project("Test", "Here is a test of a project card", "2023-05-16", "urgent");
+var newProject2 = new Project("Antother Test", "Blah", "2022-11-08", "not-urgent");
 projects.push(newProject);
-updateProjectCardsArea(projects);
-function updateProjectCardsArea(projects) {
-    var projectArea = document.querySelector(".projects");
-    for (var i = 0; i < projects.length; i++) {
-        var card = document.createElement("div");
-        card.setAttribute("data-target", "".concat(i));
-        card.classList.add("project-card");
-        card.classList.add("".concat(projects[i].urgency));
-        var title = document.createElement("h2");
-        title.classList.add("project-title");
-        title.textContent = projects[i].title;
-        var description = document.createElement("p");
-        description.classList.add("project-description");
-        description.textContent = projects[i].description;
-        var closeButton = document.createElement("div");
-        closeButton.classList.add("material-symbols-outlined");
-        closeButton.classList.add("close");
-        closeButton.textContent = "close";
-        card.appendChild(title);
-        card.appendChild(description);
-        card.appendChild(closeButton);
-        projectArea === null || projectArea === void 0 ? void 0 : projectArea.appendChild(card);
-    }
-}
+projects.push(newProject2);
+(0, updateProjectCards_1["default"])(projects);

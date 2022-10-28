@@ -1,6 +1,7 @@
 import "./meyer-reset.css";
 import "./style.css";
-import resetModal from "./resetModal"
+import resetModal from "./resetModal";
+import updateProjectCardsArea from "./updateProjectCards";
 
 // where the project objects will get stored after being created
 let projects: any = [];
@@ -30,45 +31,36 @@ class Project {
 }
 
 // selector for the create project button and modal
-const modal = document.querySelector(".modal") as HTMLDialogElement | null;
-const closeModal = document.querySelector(".close-modal") as HTMLDivElement | null;
-const createProjectButton = document.querySelector(".create-view") as HTMLButtonElement | null;
-createProjectButton?.addEventListener("click", () => {
-    modal?.showModal();
+const modal = document.querySelector(".modal") as HTMLDialogElement;
+const closeModal = document.querySelector(".close-modal") as HTMLDivElement;
+const createProjectButton = document.querySelector(".create-view") as HTMLButtonElement;
+createProjectButton.addEventListener("click", () => {
+    modal.showModal();
     resetModal();
 });
-closeModal?.addEventListener("click", () => {
-    modal?.close();
+closeModal.addEventListener("click", () => {
+    modal.close();
     resetModal();
+});
+modal.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        // add here the ability to validate the form
+    }
+    else if (e.key === "Escape") {
+        modal.close();
+        resetModal();
+    }
 });
 
+// function to remove projects
+export default function removeProject(index: any): void {
+    projects.splice(index, 1);
+    updateProjectCardsArea(projects);
+}
 
 // testing stuff
 let newProject = new Project("Test", "Here is a test of a project card", "2023-05-16", "urgent");
+let newProject2 = new Project("Antother Test", "Blah", "2022-11-08", "not-urgent");
 projects.push(newProject);
-
+projects.push(newProject2);
 updateProjectCardsArea(projects);
-
-function updateProjectCardsArea(projects: any[]): void {
-    const projectArea = document.querySelector(".projects") as HTMLDivElement | null;
-    for (let i = 0; i < projects.length; i++) {
-        const card = document.createElement("div") as HTMLDivElement;
-        card.setAttribute("data-target", `${i}`);
-        card.classList.add("project-card");
-        card.classList.add(`${projects[i].urgency}`);
-        const title = document.createElement("h2") as HTMLHeadingElement;
-        title.classList.add("project-title");
-        title.textContent = projects[i].title;
-        const description = document.createElement("p") as HTMLParagraphElement;
-        description.classList.add("project-description");
-        description.textContent = projects[i].description;
-        const closeButton = document.createElement("div") as HTMLDivElement;
-        closeButton.classList.add("material-symbols-outlined");
-        closeButton.classList.add("close");
-        closeButton.textContent = "close";
-        card.appendChild(title);
-        card.appendChild(description);
-        card.appendChild(closeButton);
-        projectArea?.appendChild(card);
-    }
-}
