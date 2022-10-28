@@ -7,6 +7,9 @@ function validateForm() {
     var title = document.querySelector("#title");
     var description = document.querySelector("#description");
     var date = document.querySelector("#date");
+    title.classList.remove("error");
+    description.classList.remove("error");
+    date.classList.remove("error");
     var urgency = "";
     if (document.querySelector("#urgent").checked) {
         urgency = "urgent";

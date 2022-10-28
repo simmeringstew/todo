@@ -7,6 +7,10 @@ export default function validateForm(): any[] {
     const title = document.querySelector<HTMLInputElement>("#title")!;
     const description = document.querySelector<HTMLInputElement>("#description")!;
     const date = document.querySelector<HTMLInputElement>("#date")!;
+
+    title.classList.remove("error");
+    description.classList.remove("error");
+    date.classList.remove("error");
     
     let urgency: string = "";
     if (document.querySelector<HTMLInputElement>("#urgent")!.checked) {
