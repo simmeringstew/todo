@@ -12,7 +12,6 @@ function validateForm() {
     else {
         urgency = "not-urgent";
     }
-    console.log(urgency);
     if (title === "") {
         return [];
     }
@@ -23,7 +22,7 @@ function validateForm() {
         return [];
     }
     else {
-        return ["Hello"];
+        return [title, description, date, urgency];
     }
 }
 exports["default"] = validateForm;

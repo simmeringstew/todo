@@ -11,7 +11,6 @@ export default function validateForm(): any {
     else {
         urgency = "not-urgent";
     }
-    console.log(urgency);
 
     if (title === "") {
         return [];
@@ -23,6 +22,6 @@ export default function validateForm(): any {
         return [];
     }
     else {
-        return ["Hello"];
+        return [title, description, date, urgency];
     }
 }

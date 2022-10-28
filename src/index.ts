@@ -45,7 +45,11 @@ closeModal.addEventListener("click", () => {
 });
 modal.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-        validateForm();
+        const projectData: any = validateForm();
+        if (projectData.length === 0) {
+            return;
+        }
+        newProjectObject(projectData);
         modal.close();
     }
     else if (e.key === "Escape") {
@@ -61,8 +65,17 @@ submit.addEventListener("click", () => {
     if (projectData.length === 0) {
         return;
     }
+    newProjectObject(projectData);
     modal.close();
 })
+
+// function to create a project object
+function newProjectObject(data: any): void {
+    let newProject = new Project(data[0], data[1], data[2], data[3]);
+    projects.push(newProject);
+    updateProjectCardsArea(projects);
+}
+
 
 // function to remove projects
 export default function removeProject(index: any): void {

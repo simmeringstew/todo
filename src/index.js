@@ -43,7 +43,10 @@ closeModal.addEventListener("click", function () {
 });
 modal.addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
-        (0, validateForm_1["default"])();
+        var projectData = (0, validateForm_1["default"])();
+        if (projectData.length === 0) {
+            return;
+        }
         modal.close();
     }
     else if (e.key === "Escape") {
@@ -58,8 +61,15 @@ submit.addEventListener("click", function () {
     if (projectData.length === 0) {
         return;
     }
+    newProjectObject(projectData);
     modal.close();
 });
+// function to create a project object
+function newProjectObject(data) {
+    var newProject = new Project(data[0], data[1], data[2], data[3]);
+    projects.push(newProject);
+    (0, updateProjectCards_1["default"])(projects);
+}
 // function to remove projects
 function removeProject(index) {
     projects.splice(index, 1);
