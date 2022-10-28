@@ -1,6 +1,7 @@
 import "./meyer-reset.css";
 import "./style.css";
 import resetModal from "./resetModal";
+import validateForm from "./validateForm";
 import updateProjectCardsArea from "./updateProjectCards";
 
 // where the project objects will get stored after being created
@@ -44,13 +45,24 @@ closeModal.addEventListener("click", () => {
 });
 modal.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-        // add here the ability to validate the form
+        validateForm();
+        modal.close();
     }
     else if (e.key === "Escape") {
         modal.close();
         resetModal();
     }
 });
+
+// submit form button
+const submit = document.querySelector(".submit") as HTMLButtonElement;
+submit.addEventListener("click", () => {
+    const projectData: any = validateForm();
+    if (projectData.length === 0) {
+        return;
+    }
+    modal.close();
+})
 
 // function to remove projects
 export default function removeProject(index: any): void {

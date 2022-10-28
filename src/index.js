@@ -3,6 +3,7 @@ exports.__esModule = true;
 require("./meyer-reset.css");
 require("./style.css");
 var resetModal_1 = require("./resetModal");
+var validateForm_1 = require("./validateForm");
 var updateProjectCards_1 = require("./updateProjectCards");
 // where the project objects will get stored after being created
 var projects = [];
@@ -42,12 +43,22 @@ closeModal.addEventListener("click", function () {
 });
 modal.addEventListener("keydown", function (e) {
     if (e.key === "Enter") {
-        // add here the ability to validate the form
+        (0, validateForm_1["default"])();
+        modal.close();
     }
     else if (e.key === "Escape") {
         modal.close();
         (0, resetModal_1["default"])();
     }
+});
+// submit form button
+var submit = document.querySelector(".submit");
+submit.addEventListener("click", function () {
+    var projectData = (0, validateForm_1["default"])();
+    if (projectData.length === 0) {
+        return;
+    }
+    modal.close();
 });
 // function to remove projects
 function removeProject(index) {
