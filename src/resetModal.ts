@@ -7,7 +7,10 @@ export default function resetModal(): void {
     const urgent = document.querySelector("#not-urgent") as HTMLInputElement;
 
     title.value = "";
+    title.classList.remove("error");
     description.value = "";
+    description.classList.remove("error");
     date.value = "";
+    date.classList.remove("error");
     urgent.checked = true;
 }

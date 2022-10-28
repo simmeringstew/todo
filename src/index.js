@@ -47,6 +47,7 @@ modal.addEventListener("keydown", function (e) {
         if (projectData.length === 0) {
             return;
         }
+        newProjectObject(projectData);
         modal.close();
     }
     else if (e.key === "Escape") {
