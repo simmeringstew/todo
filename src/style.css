@@ -63,7 +63,7 @@
     align-items: center;
 }
 
-form>input {
+.title, .description {
     width: 60%;
     font-size: 1.1rem;
     background-color: var(--white);
@@ -81,13 +81,13 @@ form>input:focus {
     gap: 5px;
 }
 
-.date-container>input {
+.date {
     background-color: var(--white);
     border: none;
     border-radius: 8px;
 }
 
-.date-container>input:focus {
+.date:focus {
     outline-color: var(--yellow);
 }
 
@@ -259,4 +259,12 @@ h1 {
 
 .paused {
     border: solid 4px var(--yellow);
+}
+
+/* modal error modifiers
+--------------------------------
+*/
+
+.error {
+    border: var(--red) 2px solid;
 }
