@@ -2,7 +2,7 @@ import isFuture from "date-fns/isFuture";
 
 // function to validate the create new project form
 
-export default function validateForm(): any {
+export default function validateForm(): any[] {
     let errorCheck: number = 0;
     const title = document.querySelector<HTMLInputElement>("#title")!;
     const description = document.querySelector<HTMLInputElement>("#description")!;
