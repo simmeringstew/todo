@@ -206,7 +206,7 @@ h1 {
 .project-description {
     overflow: hidden;
     display: -webkit-box;
-    line-height: 1rem;    
+    line-height: 25px;    
     max-height: 47px;     
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
