@@ -39,6 +39,6 @@ export default function validateForm(): any {
         return [];
     }
     else {
-        return [title, description, date, urgency];
+        return [title.value, description.value, date.value, urgency];
     }
 }

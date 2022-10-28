@@ -23,7 +23,6 @@ function validateForm() {
         errorCheck++;
     }
     var result = (0, isFuture_1["default"])(new Date(date.value));
-    console.log(result);
     if (date.value === "") {
         date.classList.add("error");
         errorCheck++;
@@ -36,7 +35,7 @@ function validateForm() {
         return [];
     }
     else {
-        return [title, description, date, urgency];
+        return [title.value, description.value, date.value, urgency];
     }
 }
 exports["default"] = validateForm;
