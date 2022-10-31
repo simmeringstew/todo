@@ -15,9 +15,6 @@
     --black: #111827;
     --gray: #6b7280;
     color: var(--black);
-}
-
-* {
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -34,8 +31,8 @@
 */
 
 .modal {
-    background-color: var(--blue);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--black);
     border: none;
     border-radius: 16px;
     width: 80%;
@@ -67,12 +64,12 @@
     width: 60%;
     font-size: 1.1rem;
     background-color: var(--white);
-    border: none;
+    border: var(--blue) 2px solid;
     border-radius: 8px;
 }
 
 form>input:focus {
-    outline-color: var(--yellow);
+    outline-color: var(--blue);
 }
 
 .date-container {
@@ -83,16 +80,17 @@ form>input:focus {
 
 .date {
     background-color: var(--white);
-    border: none;
+    border: var(--blue) 2px solid;
     border-radius: 8px;
 }
 
 .date:focus {
-    outline-color: var(--yellow);
+    outline-color: var(--blue);
 }
 
 .submit {
-    background-color: var(--white);
+    background-color: var(--blue);
+    color: var(--white);
     border: none;
     border-radius: 16px;
     width: 40%;
