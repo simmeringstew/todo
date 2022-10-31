@@ -68,7 +68,7 @@ submit.addEventListener("click", () => {
     }
     newProjectObject(projectData);
     modal.close();
-})
+});
 
 // function to create a project object
 function newProjectObject(data: any): void {
@@ -82,6 +82,9 @@ export function removeProject(index: any): void {
     projects.splice(index, 1);
     updateProjectCardsArea(projects);
 }
+
+// function to add new todo to the list
+
 
 // testing stuff
 let newProject = new Project("Test", "Here is a test of a project card", "2023-05-16", "urgent");

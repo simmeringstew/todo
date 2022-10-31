@@ -62,10 +62,24 @@ export default function showProject(index: any, projects: any[]): void {
     newTodo.name = "new-todo";
     newTodo.maxLength = 20;
     newTodo.placeholder = "New todo here";
+    newTodo.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && newTodo.value !== "") {
+            projects[index].addTodo(newTodo.value);
+            activeArea.innerHTML = "";
+            showProject(index, projects);
+        }
+    });
 
     const addTodoButton = document.createElement("button") as HTMLButtonElement;
     addTodoButton.classList.add("active-add");
     addTodoButton.textContent = "Add";
+    addTodoButton.addEventListener("click", () => {
+        if (newTodo.value !== "") {
+            projects[index].addTodo(newTodo.value);
+            activeArea.innerHTML = "";
+            showProject(index, projects);
+        }
+    });
 
     const completeButton = document.createElement("button") as HTMLButtonElement;
     completeButton.classList.add("complete-active");

@@ -52,9 +52,23 @@ function showProject(index, projects) {
     newTodo.name = "new-todo";
     newTodo.maxLength = 20;
     newTodo.placeholder = "New todo here";
+    newTodo.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" && newTodo.value !== "") {
+            projects[index].addTodo(newTodo.value);
+            activeArea.innerHTML = "";
+            showProject(index, projects);
+        }
+    });
     var addTodoButton = document.createElement("button");
     addTodoButton.classList.add("active-add");
     addTodoButton.textContent = "Add";
+    addTodoButton.addEventListener("click", function () {
+        if (newTodo.value !== "") {
+            projects[index].addTodo(newTodo.value);
+            activeArea.innerHTML = "";
+            showProject(index, projects);
+        }
+    });
     var completeButton = document.createElement("button");
     completeButton.classList.add("complete-active");
     completeButton.textContent = "Complete Project!";
