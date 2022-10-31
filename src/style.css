@@ -291,10 +291,20 @@ h1 {
     width: 100%;
 }
 
+.active-title-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .active-title {
     font-size: 2rem;
     font-weight: bold;
     text-decoration: underline;
+}
+
+.back {
+    font-size: 2rem;
 }
 
 .active-date {

@@ -88,6 +88,12 @@ function showProject(index) {
     var activeCard = document.createElement("div");
     activeCard.classList.add("active-card");
     activeCard.classList.add(projects[index].urgency);
+    var titleArea = document.createElement("div");
+    titleArea.classList.add("active-title-area");
+    var backButton = document.createElement("span");
+    backButton.classList.add("material-symbols-outlined");
+    backButton.classList.add("back");
+    backButton.textContent = "redo";
     var title = document.createElement("h2");
     title.classList.add("active-title");
     title.textContent = projects[index].title;
@@ -123,7 +129,9 @@ function showProject(index) {
     completeButton.textContent = "Complete Project!";
     completeButton.setAttribute("data-target", "".concat(index));
     projectArea.innerHTML = "";
-    activeCard.appendChild(title);
+    titleArea.appendChild(title);
+    titleArea.appendChild(backButton);
+    activeCard.appendChild(titleArea);
     activeCard.appendChild(date);
     activeCard.appendChild(breakLineOne);
     activeCard.appendChild(description);

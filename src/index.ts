@@ -95,6 +95,14 @@ export function showProject(index: any): void {
     activeCard.classList.add("active-card");
     activeCard.classList.add(projects[index].urgency);
 
+    const titleArea = document.createElement("div") as HTMLDivElement;
+    titleArea.classList.add("active-title-area");
+
+    const backButton = document.createElement("span") as HTMLSpanElement;
+    backButton.classList.add("material-symbols-outlined");
+    backButton.classList.add("back");
+    backButton.textContent = "redo";
+
     const title = document.createElement("h2") as HTMLHeadingElement;
     title.classList.add("active-title");
     title.textContent = projects[index].title;
@@ -137,7 +145,10 @@ export function showProject(index: any): void {
 
     projectArea.innerHTML = "";
 
-    activeCard.appendChild(title);
+    titleArea.appendChild(title);
+    titleArea.appendChild(backButton);
+
+    activeCard.appendChild(titleArea);
     activeCard.appendChild(date);
     activeCard.appendChild(breakLineOne);
     activeCard.appendChild(description);
