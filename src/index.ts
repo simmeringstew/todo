@@ -48,6 +48,7 @@ modal.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         const projectData: any = validateForm();
         if (projectData.length === 0) {
+            modal.classList.add("shake");
             return;
         }
         newProjectObject(projectData);
@@ -64,10 +65,16 @@ const submit = document.querySelector(".submit") as HTMLButtonElement;
 submit.addEventListener("click", () => {
     const projectData: any = validateForm();
     if (projectData.length === 0) {
+        modal.classList.add("shake");
         return;
     }
     newProjectObject(projectData);
     modal.close();
+});
+
+// function to remove the shake class from them modal
+modal.addEventListener("animationend", () => {
+    modal.classList.remove("shake");
 });
 
 // function to create a project object
