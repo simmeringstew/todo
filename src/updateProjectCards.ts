@@ -1,5 +1,5 @@
 import { removeProject } from "./index";
-import { showProject } from "./index";
+import showProject from "./showProject";
 
 // function to update the projects card area
 export default function updateProjectCardsArea(projects: any[]): void {
@@ -15,7 +15,7 @@ export default function updateProjectCardsArea(projects: any[]): void {
         card.classList.add("project-card");
         card.classList.add(`${projects[i].urgency}`);
         card.addEventListener("click", () => {
-            showProject(card.getAttribute("data-target"));
+            showProject(card.getAttribute("data-target"), projects);
         })
         const title = document.createElement("h2") as HTMLHeadingElement;
         title.classList.add("project-title");

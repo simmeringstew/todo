@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
 var index_1 = require("./index");
-var index_2 = require("./index");
+var showProject_1 = require("./showProject");
 // function to update the projects card area
 function updateProjectCardsArea(projects) {
     var projectArea = document.querySelector(".projects");
@@ -14,7 +14,7 @@ function updateProjectCardsArea(projects) {
         card.classList.add("project-card");
         card.classList.add("".concat(projects[i].urgency));
         card.addEventListener("click", function () {
-            (0, index_2.showProject)(card.getAttribute("data-target"));
+            (0, showProject_1["default"])(card.getAttribute("data-target"), projects);
         });
         var title = document.createElement("h2");
         title.classList.add("project-title");
