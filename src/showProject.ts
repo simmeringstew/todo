@@ -45,6 +45,11 @@ export default function showProject(index: any, projects: any[]): void {
         const checkBox = document.createElement("input") as HTMLInputElement;
         checkBox.type = "checkbox";
         checkBox.setAttribute("data-target", `${i}`);
+        checkBox.addEventListener("change", () => {
+            projects[index].removeTodo(checkBox.getAttribute("data-target"));
+            activeArea.innerHTML = "";
+            showProject(index, projects);
+        });
         const todoText = document.createElement("p") as HTMLParagraphElement;
         todoText.classList.add("todo-text");
         todoText.textContent = projects[index].todos[i];

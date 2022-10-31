@@ -30,19 +30,27 @@ function showProject(index, projects) {
     description.classList.add("active-description");
     description.textContent = projects[index].description;
     var allTodos = [];
-    for (var i = 0; i < projects[index].todos.length; i++) {
+    var _loop_1 = function (i) {
         var todoArea = document.createElement("div");
         todoArea.classList.add("todo");
         todoArea.setAttribute("data-target", "".concat(i));
         var checkBox = document.createElement("input");
         checkBox.type = "checkbox";
         checkBox.setAttribute("data-target", "".concat(i));
+        checkBox.addEventListener("change", function () {
+            projects[index].removeTodo(checkBox.getAttribute("data-target"));
+            activeArea.innerHTML = "";
+            showProject(index, projects);
+        });
         var todoText = document.createElement("p");
         todoText.classList.add("todo-text");
         todoText.textContent = projects[index].todos[i];
         todoArea.appendChild(checkBox);
         todoArea.appendChild(todoText);
         allTodos.push(todoArea);
+    };
+    for (var i = 0; i < projects[index].todos.length; i++) {
+        _loop_1(i);
     }
     var newTodoArea = document.createElement("div");
     newTodoArea.classList.add("active-new-todo-area");
