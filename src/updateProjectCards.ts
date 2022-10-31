@@ -28,7 +28,8 @@ export default function updateProjectCardsArea(projects: any[]): void {
         closeButton.classList.add("close");
         closeButton.setAttribute("data-target", `${i}`);
         closeButton.textContent = "close";
-        closeButton.addEventListener("click", () => {
+        closeButton.addEventListener("click", (e) => {
+            e.stopPropagation();
             removeProject(closeButton.getAttribute("data-target"));
         });
         card.appendChild(title);

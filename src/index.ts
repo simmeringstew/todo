@@ -82,14 +82,3 @@ export function removeProject(index: any): void {
     projects.splice(index, 1);
     updateProjectCardsArea(projects);
 }
-
-// function to add new todo to the list
-
-
-// testing stuff
-let newProject = new Project("Test", "Here is a test of a project card", "2023-05-16", "urgent");
-let newProject2 = new Project("Antother Test", "Blah", "2022-11-08", "not-urgent");
-projects.push(newProject);
-projects.push(newProject2);
-projects[1].addTodo("See if this works");
-updateProjectCardsArea(projects);

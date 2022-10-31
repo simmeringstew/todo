@@ -27,7 +27,8 @@ function updateProjectCardsArea(projects) {
         closeButton.classList.add("close");
         closeButton.setAttribute("data-target", "".concat(i));
         closeButton.textContent = "close";
-        closeButton.addEventListener("click", function () {
+        closeButton.addEventListener("click", function (e) {
+            e.stopPropagation();
             (0, index_1.removeProject)(closeButton.getAttribute("data-target"));
         });
         card.appendChild(title);
