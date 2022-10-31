@@ -79,11 +79,3 @@ function removeProject(index) {
     (0, updateProjectCards_1["default"])(projects);
 }
 exports.removeProject = removeProject;
-// function to add new todo to the list
-// testing stuff
-var newProject = new Project("Test", "Here is a test of a project card", "2023-05-16", "urgent");
-var newProject2 = new Project("Antother Test", "Blah", "2022-11-08", "not-urgent");
-projects.push(newProject);
-projects.push(newProject2);
-projects[1].addTodo("See if this works");
-(0, updateProjectCards_1["default"])(projects);
