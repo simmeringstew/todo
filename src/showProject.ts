@@ -1,4 +1,5 @@
 import updateProjectCardsArea from "./updateProjectCards";
+import { removeProject } from "./index";
 
 // function to show a the project that the user clicks on
 
@@ -63,6 +64,9 @@ export default function showProject(index: any, projects: any[]): void {
     completeButton.classList.add("complete-active");
     completeButton.textContent = "Complete Project!";
     completeButton.setAttribute("data-target", `${index}`);
+    completeButton.addEventListener("click", () => {
+        removeProject(completeButton.getAttribute("data-target"));
+    });
 
     projectArea.innerHTML = "";
 

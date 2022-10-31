@@ -1,6 +1,7 @@
 "use strict";
 exports.__esModule = true;
 var updateProjectCards_1 = require("./updateProjectCards");
+var index_1 = require("./index");
 // function to show a the project that the user clicks on
 function showProject(index, projects) {
     var activeArea = document.querySelector(".active-project");
@@ -53,6 +54,9 @@ function showProject(index, projects) {
     completeButton.classList.add("complete-active");
     completeButton.textContent = "Complete Project!";
     completeButton.setAttribute("data-target", "".concat(index));
+    completeButton.addEventListener("click", function () {
+        (0, index_1.removeProject)(completeButton.getAttribute("data-target"));
+    });
     projectArea.innerHTML = "";
     titleArea.appendChild(title);
     titleArea.appendChild(backButton);
