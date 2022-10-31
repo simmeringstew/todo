@@ -44,12 +44,17 @@ function showProject(index, projects) {
         todoArea.appendChild(todoText);
         allTodos.push(todoArea);
     }
+    var newTodoArea = document.createElement("div");
+    newTodoArea.classList.add("active-new-todo-area");
     var newTodo = document.createElement("input");
     newTodo.classList.add("new-todo");
     newTodo.id = "new-todo";
     newTodo.name = "new-todo";
     newTodo.maxLength = 20;
-    newTodo.placeholder = "Press enter to add";
+    newTodo.placeholder = "New todo here";
+    var addTodoButton = document.createElement("button");
+    addTodoButton.classList.add("active-add");
+    addTodoButton.textContent = "Add";
     var completeButton = document.createElement("button");
     completeButton.classList.add("complete-active");
     completeButton.textContent = "Complete Project!";
@@ -60,6 +65,8 @@ function showProject(index, projects) {
     projectArea.innerHTML = "";
     titleArea.appendChild(title);
     titleArea.appendChild(backButton);
+    newTodoArea.appendChild(newTodo);
+    newTodoArea.appendChild(addTodoButton);
     activeCard.appendChild(titleArea);
     activeCard.appendChild(date);
     activeCard.appendChild(breakLineOne);
@@ -68,7 +75,7 @@ function showProject(index, projects) {
     for (var i = 0; i < allTodos.length; i++) {
         activeCard.appendChild(allTodos[i]);
     }
-    activeCard.appendChild(newTodo);
+    activeCard.appendChild(newTodoArea);
     activeCard.appendChild(completeButton);
     activeArea.appendChild(activeCard);
 }

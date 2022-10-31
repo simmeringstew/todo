@@ -53,12 +53,19 @@ export default function showProject(index: any, projects: any[]): void {
         allTodos.push(todoArea);
     }
 
+    const newTodoArea = document.createElement("div") as HTMLDivElement;
+    newTodoArea.classList.add("active-new-todo-area");
+
     const newTodo = document.createElement("input") as HTMLInputElement;
     newTodo.classList.add("new-todo");
     newTodo.id = "new-todo";
     newTodo.name = "new-todo";
     newTodo.maxLength = 20;
-    newTodo.placeholder = "Press enter to add";
+    newTodo.placeholder = "New todo here";
+
+    const addTodoButton = document.createElement("button") as HTMLButtonElement;
+    addTodoButton.classList.add("active-add");
+    addTodoButton.textContent = "Add";
 
     const completeButton = document.createElement("button") as HTMLButtonElement;
     completeButton.classList.add("complete-active");
@@ -73,6 +80,9 @@ export default function showProject(index: any, projects: any[]): void {
     titleArea.appendChild(title);
     titleArea.appendChild(backButton);
 
+    newTodoArea.appendChild(newTodo);
+    newTodoArea.appendChild(addTodoButton);
+
     activeCard.appendChild(titleArea);
     activeCard.appendChild(date);
     activeCard.appendChild(breakLineOne);
@@ -81,7 +91,7 @@ export default function showProject(index: any, projects: any[]): void {
     for (let i = 0; i < allTodos.length; i++) {
         activeCard.appendChild(allTodos[i]);
     }
-    activeCard.appendChild(newTodo);
+    activeCard.appendChild(newTodoArea);
     activeCard.appendChild(completeButton);
 
     activeArea.appendChild(activeCard);
